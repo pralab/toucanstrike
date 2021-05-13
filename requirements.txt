@@ -1,0 +1,8 @@
+numpy
+secml
+secml-malware
+cmd2
+torch
+git+https://github.com/elastic/ember.git
+python-magic
+colorama
