@@ -1,12 +1,9 @@
-import inspect
-import os
-import pkgutil
 import sys
-import types
+
 from colorama import Fore, Style
+
 from constants import banner
 from interface import ToucanStrikeInterface
-from prompts import success_prompt, crash_prompt
 
 
 def print_banner():

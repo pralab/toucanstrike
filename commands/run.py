@@ -135,6 +135,7 @@ def run(args):
 def get_run_parser():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--output',
-						help='specifies where to save the resulting adversarial malware. Leave blank to not save them',
+						help='specifies the folder where to save the resulting adversarial malware. '
+							 'Name will be "name_adv". Leave blank to not save them',
 						default=None)
 	return parser
