@@ -12,7 +12,7 @@ from state import global_state
 def get_target_parser():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('target',
-						help='target for the attacks. Examples already implemented: malconv, ember_gbdt, sorel_dnn')
+						help='target for the attacks. Examples already implemented: malconv, gbdt_ember, sorel_dnn')
 	parser.add_argument('--model_path',
 						help='path to the weights of the model. Leave empty for MalConv to load default weights embedded in library.')
 	return parser

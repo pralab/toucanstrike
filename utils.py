@@ -78,7 +78,7 @@ def create_correct_whitebox_attack(args):
 def create_gamma_black_box_attack(cli_args):
 	how_many_sections = int(cli_args.inject)
 	cache_file = cli_args.cache_file
-	population_size = cli_args.population_size
+	population_size = int(cli_args.population_size)
 	iterations = int(cli_args.query_budget) // population_size + 1
 	penalty_regularizer = float(cli_args.reg_par)
 	goodware_folder = cli_args.goodware_folder
