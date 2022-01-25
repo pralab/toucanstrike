@@ -30,7 +30,7 @@ def whitebox(args):
 		return
 
 	if args.inject is None:
-		if args.type != PARTIAL_DOS:
+		if args.type != PARTIAL_DOS and args.type != HEADER_FIELDS:
 			error_prompt('You have to set an injection amount.')
 			return
 		else:

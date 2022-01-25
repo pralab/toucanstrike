@@ -1,11 +1,13 @@
 from secml_malware.attack.blackbox.c_black_box_format_exploit_evasion import CBlackBoxFormatExploitEvasionProblem
 from secml_malware.attack.blackbox.c_black_box_padding_evasion import CBlackBoxPaddingEvasionProblem
 from secml_malware.attack.blackbox.c_blackbox_header_problem import CBlackBoxHeaderEvasionProblem
+from secml_malware.attack.blackbox.c_blackbox_headerfields_problem import CBlackBoxHeaderFieldsEvasionProblem
 from secml_malware.attack.blackbox.c_gamma_evasion import CGammaEvasionProblem
 from secml_malware.attack.blackbox.c_gamma_sections_evasion import CGammaSectionsEvasionProblem
-from secml_malware.attack.blackbox.c_wrapper_phi import CEmberWrapperPhi, CEnd2EndWrapperPhi
+from secml_malware.attack.blackbox.c_wrapper_phi import CEmberWrapperPhi, CEnd2EndWrapperPhi, CSorelWrapperPhi
 from secml_malware.attack.whitebox import CHeaderEvasion, CExtendDOSEvasion, \
 	CContentShiftingEvasion, CPaddingEvasion
+from secml_malware.attack.whitebox.c_headerfields_evasion import CHeaderFieldsEvasion
 from secml_malware.models import CClassifierEmber, CClassifierEnd2EndMalware
 from secml_malware.models.c_classifier_sorel_net import CClassifierSorel
 
@@ -70,6 +72,14 @@ def create_correct_whitebox_attack(args):
 			optimize_all_dos=False,
 			threshold=threshold
 		)
+	elif args.type == HEADER_FIELDS:
+		attack = CHeaderFieldsEvasion(
+			net,
+			is_debug=is_debug,
+			random_init=True,
+			iterations=iterations,
+			threshold=threshold
+		)
 	else:
 		raise NotImplementedError(f'{args.type} not implemented yet')
 	return attack
@@ -128,6 +138,9 @@ def create_byte_based_black_box_attack(cli_args):
 	elif cli_args.type == PADDING:
 		problem = CBlackBoxPaddingEvasionProblem(model, how_many_padding_bytes=inject, iterations=iterations,
 												 population_size=population_size)
+	elif cli_args.type == HEADER_FIELDS:
+		problem = CBlackBoxHeaderFieldsEvasionProblem(model, iterations=iterations,
+												 population_size=population_size)
 	else:
 		raise KeyError(f"{cli_args.type} not recognized as attack")
 	return problem
@@ -139,7 +152,7 @@ def create_wrapper_for_global_target():
 	if type(global_state.target) == CClassifierEnd2EndMalware:
 		return CEnd2EndWrapperPhi(global_state.target)
 	if type(global_state.target) == CClassifierSorel:
-		return CEmberWrapperPhi(global_state.target)
+		return CSorelWrapperPhi(global_state.target)
 	if hasattr(global_state.target, 'load_wrapper'):
 		try:
 			return global_state.target.load_wrapper()
