@@ -20,6 +20,7 @@ def get_white_box_parser():
 
 
 def whitebox(args):
+	args.type = "partial_dos"
 	if global_state.target is None:
 		error_prompt('You have first to set a target.')
 		return

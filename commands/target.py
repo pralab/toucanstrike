@@ -19,6 +19,7 @@ def get_target_parser():
 
 
 def target(args):
+	args.target = "malconv"
 	if args.target is None:
 		error_prompt('You have to set a target.')
 		error_prompt(f'Chose one from this list: {ALL_MODELS}')
