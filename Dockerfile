@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y python3 python3-pip
-RUN apt-get install git
+RUN apt-get update && apt-get upgrade -y && apt-get install -y git
 RUN git clone https://github.com/snehith57624/toucanstrike.git
 RUN cd toucanstrike
 
