@@ -16,7 +16,7 @@ from prompts import get_default_prompt
 
 class ToucanStrikeInterface(Cmd):
 	def __init__(self):
-		super().__init__(use_ipython=True)
+		super().__init__()
 		self.prompt = get_default_prompt()
 
 	# setattr(Cmd, "do_set_meta", Cmd.do_set)
