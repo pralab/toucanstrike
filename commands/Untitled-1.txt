@@ -1,0 +1,5 @@
+curl -X POST -d "command=target malconv" http://localhost:5000/command
+
+curl -X POST -d "command=data static/Rbot-O.7z" http://localhost:5000/command
+
+curl -X POST -F "file=@/toucanstrike/malware-samples/Rbot/Rbot-O.7z" http://localhost:5000/upload

@@ -3,6 +3,8 @@ from colorama import Fore, Style
 
 from constants import banner
 from interface import ToucanStrikeInterface
+import os
+
 
 app = Flask(__name__)
 terminal = ToucanStrikeInterface()
