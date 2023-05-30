@@ -33,6 +33,10 @@ def upload_file():
 
     # Save the file to the static folder
     file.save(os.path.join(app.static_folder, file.filename))
+    command = "data "+str(os.path.join(app.static_folder, file.filename))
+    print("input ",command)
+    output = terminal.onecmd(command)
+    print("output ",output)
 
     return jsonify({'message': 'File uploaded successfully'})
 
