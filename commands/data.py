@@ -19,7 +19,6 @@ def get_data_parser():
 
 
 def data(args):
-	args.path = "malware-samples/Rbot"
 	path = args.path
 	# path = "malware-samples/Rbot"
 	if path is None:
