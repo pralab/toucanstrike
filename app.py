@@ -11,7 +11,7 @@ terminal = ToucanStrikeInterface()
 
 @app.route('/')
 def index():
-    return render_template('index.html', banner=Fore.YELLOW + banner + Style.RESET_ALL)
+    return "working"
 
 @app.route('/command', methods=['POST'])
 def execute_command():
