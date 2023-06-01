@@ -35,8 +35,8 @@ def upload_file():
 
     target = request.form.get('target')
 
-    if target is None:
-        return jsonify({'error': 'Invalid request parameters, target not found'})
+    # if target is None:
+    #     return jsonify({'error': 'Invalid request parameters, target not found'})
     target_command = "target " + target
     output = terminal.onecmd(target_command)
     print("target_command ", output)

@@ -20,7 +20,6 @@ def get_data_parser():
 
 def data(args):
 	path = args.path
-	# path = "malware-samples/Rbot"
 	if path is None:
 		error_prompt('You have to set a path to a file or folder.')
 		return

@@ -7,7 +7,7 @@ RUN git clone https://github.com/snehith57624/toucanstrike.git
 # RUN cd toucanstrike
 
 # Expose the port
-# EXPOSE 5000
+EXPOSE 5000
 
 # Install Python dependencies
 RUN pip install flask colorama && pip install tqdm && pip install -U "ipython>=7.20"
