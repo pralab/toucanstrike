@@ -10,3 +10,5 @@ curl --location 'http://localhost:5000/upload' \
 docker build -t flask-app . --no-cache --network=host
 
 docker run -d -p 8000:5000 --name webserver flask-app
+
+docker exec -it webserver bash
