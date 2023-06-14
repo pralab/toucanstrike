@@ -1,0 +1,12 @@
+curl -X POST -d "command=target malconv" http://localhost:5000/command
+
+curl -X POST -d "command=whitebox --type partial_dos" http://localhost:5000/command
+
+curl --location 'http://localhost:5000/upload' \
+--form 'file=@"/toucanstrike/malware-samples/Rbot/Rbot-O.7z"' \
+--form 'target="\"malconv\""'
+
+
+docker build -t flask-app . --no-cache --network=host
+
+docker run -d -p 8000:5000 --name webserver flask-app
