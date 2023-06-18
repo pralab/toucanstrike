@@ -11,9 +11,6 @@ class State:
 		self.attack: Union([None, CBlackBoxProblem, CEnd2EndMalwareEvasion]) = None
 		self.target: Union([None, CWrapperPhi, CClassifierEnd2EndMalware]) = None
 		self.data_paths: Union([None, str]) = None
-		self.attack = "partial_dos"
-		self.target = "malconv"
-		self.data_paths = "malware-samples/Rbot"
 		self.goodware_folder: Union([None, str]) = None
 		self.plugin_path: str = os.path.join(os.path.dirname(__file__), 'plugins')
 		if not os.path.isdir(self.plugin_path):
