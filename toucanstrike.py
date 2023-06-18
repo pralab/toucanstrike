@@ -15,7 +15,5 @@ def print_banner():
 if __name__ == '__main__':
 	print_banner()
 	terminal = ToucanStrikeInterface()
-	print("test 1")
 	sys.exit(terminal.cmdloop())
-	print("test 1")
 
